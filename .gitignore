@@ -1,0 +1,71 @@
+# Claude Code home directory — skills backup.
+#
+# SAFETY MODEL: deny everything, then allow the few things that are source.
+# This directory also holds credentials, auth tokens, and every conversation
+# transcript, so a permissive ignore file here leaks secrets. Do not replace
+# the leading `*` with targeted rules.
+
+# 1. Ignore everything.
+*
+
+# 2. Re-allow only hand-written source.
+#    Directories need an explicit un-ignore before git will descend into
+#    them, hence the paired `!dir/` and `!dir/**` lines.
+!.gitignore
+!.gitattributes
+!README.md
+!LICENSE
+!plugins.md
+!sync-skills.sh
+!sync-public.sh
+!restore-plugins.sh
+
+!skills/
+!skills/**
+
+# Global shell hooks, referenced by absolute path from settings.json. Without
+# these the settings file restores onto a machine where every hook command
+# points at a file that does not exist.
+!hooks/
+!hooks/**
+
+!settings.json
+
+# 3. Belt and braces — re-deny anything sensitive that a future `!` rule
+#    might otherwise expose. These override the allows above.
+.credentials.json
+**/.credentials.json
+*.key
+*.pem
+*.env
+.env*
+history.jsonl
+*.imported
+mcp-needs-auth-cache.json
+
+# Personal, per-machine, or regenerable — never source.
+settings.local.json
+projects/
+plugins/
+sessions/
+todos/
+file-history/
+shell-snapshots/
+session-env/
+statsig/
+telemetry/
+cache/
+backups/
+ide/
+
+# Runtime-synced skill cache (bundled skills like docx/xlsx/pptx, and
+# per-session bucket markers) — Claude Code writes this under skills/ on
+# its own, so the blanket `!skills/**` re-allow above would otherwise pull
+# hundreds of files that are not this library's own source into every
+# commit. Caught once already: a single commit picked up 628 of these.
+skills/synced/
+
+# Editor/IDE trash for deleted skill folders — includes personal,
+# non-coding skill drafts (dating/relationship/lifestyle topics) that must
+# never reach either repo. Not this library's source; never re-allow.
+skills/.trash/

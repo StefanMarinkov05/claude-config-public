@@ -1,0 +1,239 @@
+{
+  "respectGitignore": false,
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -o /dev/null -w '%{http_code}\\\\n' localhost:8080)",
+      "Bash(docker compose *)",
+      "Bash(jobs)",
+      "Bash(curl -s https://repo.packagist.org/p2/pestphp/pest-plugin-browser.json)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); [print\\(v['version'], '->', v['require'].get\\('pestphp/pest'\\), '| php', v['require'].get\\('php'\\)\\) for v in d['packages']['pestphp/pest-plugin-browser'][:8]]\")",
+      "Bash(curl -s https://repo.packagist.org/p2/pestphp/pest.json)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); v=[p for p in d['packages']['pestphp/pest'] if p['version']=='v5.1.4'][0]; print\\(json.dumps\\(v['require'],indent=1\\)\\)\")",
+      "Bash(grep -rn 'NON_AUTHORED\\\\|namesForResource\\\\|PermissionCatalogue::names\\\\|count\\($permissions\\\\|toHaveCount\\\\|Permission::count\\\\|ReturnPolicy\\\\|OrderReturn::class =>' tests/ app/Providers/)",
+      "Bash(git mv *)",
+      "Bash(sed -i 's/class ReturnPolicy/class OrderReturnPolicy/' app/Policies/OrderReturnPolicy.php)",
+      "Bash(cp app/Actions/Returns/RequestReturn.php /tmp/RR.bak)",
+      "Bash(sed -i 's/Order::query\\(\\)->lockForUpdate\\(\\)->findOrFail/Order::query\\(\\)->findOrFail/' app/Actions/Returns/RequestReturn.php)",
+      "Bash(grep -n \"write-rules/\\\\`\\\\|\\\\`product.md\\\\`\\\\|\\\\`order.md\\\\`\\\\|\\\\`cart.md\\\\`\\\\|write-rules/\" ../CLAUDE.md)",
+      "Bash(grep -iA2 -B2 \"order\")",
+      "Bash(grep -n \"## Locking\\\\|## Callers\\\\|## Exceptions\\\\|## Test obligations\\\\|RestockReturn\\\\`\" docs/reference/actions.md)",
+      "mcp__playwright-chromium__browser_navigate",
+      "mcp__playwright-chromium__browser_snapshot",
+      "mcp__playwright-chromium__browser_fill_form",
+      "mcp__playwright-chromium__browser_click",
+      "Bash(grep -n \"^## \\\\|^| \\\\`\\\\|purge-anonymised\\\\|carts:expire\\\\|newsletter:purge\" ../docs/reference/console-commands.md)",
+      "Bash(grep -n 'Product::create\\\\|->save\\(\\)\\\\|DB::transaction\\\\|return $product\\\\|handle\\(' app/Actions/Catalogue/CreateProduct.php)",
+      "Bash(grep -n 'ResolveProductPrice\\\\|ResolveVariationPrice\\\\|$price\\\\|'\\\\''price'\\\\''\\\\|price =>' app/Livewire/Catalogue/ProductDetails.php app/Livewire/Catalogue/ProductList.php)",
+      "Bash(grep -n 'render\\(\\)\\\\|return view\\\\|'\\\\''price'\\\\''\\\\|compact\\\\|=> $this' app/Livewire/Catalogue/ProductDetails.php)",
+      "Bash(grep -n '@php\\\\|$price\\\\|$product\\\\b\\\\|this->price\\\\|this->priorPrice' resources/views/livewire/catalogue/product-details.blade.php)",
+      "Bash(grep -n '$price = \\\\|this->price\\(\\\\|@php\\($price\\\\|@foreach.*product\\\\|priorPrice' resources/views/livewire/catalogue/product-list.blade.php)",
+      "mcp__playwright-chromium__browser_console_messages",
+      "Bash(sed -i 's|`0001`–`0020`|`0001`–`0021`|' src/.ai/guidelines/project-conventions.md)",
+      "Bash(sed -i 's|- \\\\*\\\\*\\\\[0020\\\\]\\(0020-order-return-aggregate.md\\)\\\\*\\\\* — The `OrderReturn` aggregate\\\\n  \\(14-day right of withdrawal; independent of `orders.status`; COD handling\\)|&|' docs/adr/README.md)",
+      "Bash(grep -n \"^## Catalogue\\\\|UpdateProduct\\\\` \\\\|RecordDamage\\\\` \\\\|^## Cart\\\\|SetProductAttributeValues\\\\` \" docs/reference/actions.md)",
+      "Bash(grep -n \"CreateProduct\\\\` |\" docs/reference/actions.md)",
+      "Bash(grep -n \"### \\\\`ProductListPriceAndRatingFilterTest\\\\`\\\\|### \\\\`ProductDetailsQuantityTest\\\\`\" docs/reference/testing/ui-tests.md)",
+      "mcp__playwright-chromium__browser_close",
+      "Bash(git add *)",
+      "Bash(git restore *)",
+      "Bash(git commit *)",
+      "Bash(sed -i 's/Twenty so far/Twenty-one so far/; s/\\(`0001`–`0020`\\)/\\(`0001`–`0021`\\)/' CLAUDE.md)",
+      "Bash(sed -i \"s/one decision per file, \\\\`0001\\\\`–\\\\`0020\\\\`/one decision per file, \\\\`0001\\\\`–\\\\`0021\\\\`/\" src/.ai/guidelines/project-conventions.md)",
+      "mcp__playwright-chromium__browser_take_screenshot",
+      "Bash(grep -n \"Art. 12–14\\\\|Arts. 12–14\\\\|placeholder\\\\|privacy policy the customer\\\\|static pages\\\\|/terms\\\\` carry the terms\\\\|Real privacy policy\" ../docs/reference/regulatory-compliance.md)",
+      "Bash(cat ~/.claude/skills/website-testing/references/automated-browser-testing.md 2>/dev/null | sed -n '/[Pp]ayment challenge/,/^## /p' | head -120)",
+      "Read(//home/azis/.claude/skills/website-testing/references/**)",
+      "Bash(code --install-extension fwcd.kotlin --force)",
+      "Bash(code --install-extension redhat.java --force)",
+      "Bash(mkdir -p /home/azis/Projects/group17-implementation/.vscode && echo done)",
+      "Bash(sed -i 's/Storage::disk\\(ProductImage::DISK\\)/Storage::disk\\(ProductImage::SEED_DISK\\)/g' src/app/Console/Commands/FetchDemoImages.php)",
+      "Bash(sed -i 's/Storage::disk\\(Article::IMAGE_DISK\\)/Storage::disk\\(Article::IMAGE_SEED_DISK\\)/g' src/app/Console/Commands/FetchDemoArticleImages.php)",
+      "Bash(sed -i \"s|private const PLACEHOLDER_PATH = 'product-images/stress-placeholder.png';|private const PLACEHOLDER_PATH = ProductImage::SEED_DIRECTORY.'/stress-placeholder.png';|\" src/database/seeders/Stress/CatalogueStressSeeder.php src/database/seeders/Stress/DeepCatalogueStressSeeder.php)",
+      "Bash(sed -i 's/Storage::disk\\(ProductImage::DISK\\)/Storage::disk\\(ProductImage::SEED_DISK\\)/g' src/database/seeders/Stress/CatalogueStressSeeder.php src/database/seeders/Stress/DeepCatalogueStressSeeder.php)",
+      "Bash(python3 -)",
+      "Bash(curl -s -o /dev/null -w \"catalogue:%{http_code}\\\\n\" http://localhost:8080/catalogue)",
+      "mcp__playwright-chromium__browser_evaluate",
+      "Bash(python3 -c ' *)",
+      "mcp__playwright-chromium__browser_file_upload",
+      "mcp__playwright-chromium__browser_wait_for",
+      "Bash(railway status *)",
+      "Bash(java -version)",
+      "Bash(docker run *)",
+      "Bash(grep -n \"^##\\\\|^| \\\\`\" docs/explanation/secrets-and-env.md)",
+      "Bash(find . -maxdepth 1 && echo \"---src---\" && ls src && echo \"---docs---\" && ls docs 2>/dev/null || ls ../docs 2>/dev/null)",
+      "Read(//home/azis/Projects/**)",
+      "Bash(grep -rn \"@var.*Product \\\\\\\\\\\\$\\\\|@var.*Order \\\\\\\\\\\\$\" src/app/Actions --include=\"*.php\")"
+    ],
+    "additionalDirectories": [
+      "/tmp",
+      "/home/azis/Projects/group17-implementation"
+    ]
+  },
+  "model": "sonnet",
+  "disableClaudeAiConnectors": true,
+  "skillOverrides": {
+    "agent-orchestration": "off",
+    "api-design": "off",
+    "brainstorming": "off",
+    "code-comprehension": "off",
+    "code-quality": "off",
+    "code-review": "off",
+    "codebase-design": "off",
+    "coding-standards": "off",
+    "concurrency": "off",
+    "context-handoff": "off",
+    "critical-observer": "off",
+    "cv-and-applications": "off",
+    "database-design": "off",
+    "debugging-protocol": "off",
+    "devops-cicd": "off",
+    "docs-and-comments": "off",
+    "engineering-reasoning": "off",
+    "frontend-distinctive-design": "off",
+    "git-guardrails": "off",
+    "git-workflow": "off",
+    "grilling": "off",
+    "laravel-pro": "off",
+    "project-pipeline": "off",
+    "project-planning": "off",
+    "requirements-to-spec": "off",
+    "security-baseline": "off",
+    "tdd": "off",
+    "tech-selection": "off",
+    "transparent-reasoning": "off",
+    "ui-design": "off",
+    "verification-gates": "off",
+    "website-testing": "off",
+    "stripe:connect-recommend": "off",
+    "stripe:connect-required-verification-information": "off",
+    "stripe:stripe-apps": "off",
+    "stripe:stripe-best-practices": "off",
+    "stripe:stripe-directory": "off",
+    "stripe:stripe-docs": "off",
+    "stripe:stripe-projects": "off",
+    "stripe:upgrade-stripe": "off",
+    "stripe:explain-error": "off",
+    "stripe:test-cards": "off",
+    "chrome-devtools-mcp:a11y-debugging": "off",
+    "chrome-devtools-mcp:chrome-devtools": "off",
+    "chrome-devtools-mcp:chrome-devtools-cli": "off",
+    "chrome-devtools-mcp:debug-optimize-lcp": "off",
+    "chrome-devtools-mcp:memory-leak-debugging": "off",
+    "chrome-devtools-mcp:troubleshooting": "off",
+    "hookify:writing-rules": "off",
+    "hookify:hookify": "off",
+    "hookify:configure": "off",
+    "hookify:help": "off",
+    "hookify:list": "off",
+    "interview-handbook": "off"
+  },
+  "disableBundledSkills": true,
+  "hooks": {
+    "PreCompact": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/azis/.claude/hooks/confirm-compact.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash|Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/azis/.claude/hooks/model-check-reminder.sh",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/azis/.claude/hooks/block-ai-attribution.sh",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/azis/.claude/hooks/block-env-reads.sh",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/azis/.claude/hooks/warn-merged-migration.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/azis/.claude/hooks/remind-public-sync.sh",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -x /home/azis/Projects/interview-prep/scripts/autocommit.sh ] && /home/azis/Projects/interview-prep/scripts/autocommit.sh; exit 0",
+            "timeout": 20
+          }
+        ]
+      }
+    ]
+  },
+  "disableRemoteControl": false,
+  "disableWorkflows": true,
+  "enabledPlugins": {
+    "stripe@claude-plugins-official": false,
+    "chrome-devtools-mcp@claude-plugins-official": true,
+    "hookify@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true
+  },
+  "alwaysThinkingEnabled": false,
+  "effortLevel": "medium",
+  "modelSettings": {
+    "claude-opus-5": {
+      "effortLevel": "medium"
+    },
+    "claude-sonnet-5": {
+      "effortLevel": "high"
+    },
+    "claude-opus-5-5": {
+      "effortLevel": "high"
+    },
+    "claude-sonnet-5-5": {
+      "effortLevel": "medium"
+    }
+  },
+  "autoUpdatesChannel": "latest",
+  "tui": "fullscreen",
+  "theme": "dark",
+  "switchModelsOnFlag": false,
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true
+}

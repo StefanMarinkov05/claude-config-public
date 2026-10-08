@@ -1,0 +1,5 @@
+# Let Markdown count as a real language in GitHub's Linguist stats. By
+# default Linguist classifies *.md as "documentation" and excludes it from
+# the language bar entirely — in this repo that hides 65 of 79 tracked
+# files, leaving the bar showing 100% Shell for 9 scripts.
+*.md linguist-documentation=false
